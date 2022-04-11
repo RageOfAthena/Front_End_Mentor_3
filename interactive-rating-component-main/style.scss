@@ -1,0 +1,158 @@
+$body_color: #141519;
+$card_color: #212832;
+$card_star_back: #1b1f244a;
+$orange_color: #fa7a16;
+/////////////////////////////////////////////
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  font-family: "Roboto", sans-serif;
+  background-color: $body_color;
+}
+%same_code {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 19px;
+  color: #faffff91;
+}
+.rating {
+  background-color: $card_color;
+  width: 30rem;
+  margin: 9.2rem auto 0 auto;
+  height: 37rem;
+  padding: 11px 23px 0;
+  border-radius: 17px;
+  &_topstar {
+    width: 4rem;
+    height: 4rem;
+    background-color: $card_star_back;
+    border-radius: 50%;
+    position: relative;
+    &_svg {
+      width: 52%;
+      height: 93%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      fill: $orange_color;
+    }
+  }
+  &_head {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 24px;
+    color: #faffff;
+  }
+  &_para {
+    font-size: 12px;
+    margin-top: 29px;
+    width: 113%;
+    color: #faffff9c;
+  }
+  &_btn {
+    display: block;
+    margin-top: 37px;
+    width: 103%;
+    height: 37px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ef6900;
+    text-transform: uppercase;
+    color: #faffff;
+    cursor: pointer;
+    &:hover,
+    &:active {
+      background-color: #faffff;
+      color: #ef6900;
+    }
+  }
+
+  &_radios:checked + &_labels {
+    background-color: $orange_color;
+  }
+
+  &_input {
+    display: flex;
+    justify-content: space-around;
+    // background-color: red;
+    margin-top: 24px;
+    height: 10%;
+    // align-items: center;
+    // gap: 5px;
+  }
+  &_labels {
+    // border-radius: 50%;
+    border-radius: 50%;
+    background-color: $card_star_back;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    &:hover,
+    &:active {
+      background-color: $orange_color;
+    }
+  }
+
+  &_radios {
+    display: none;
+
+    &_label1::after {
+      content: "1";
+      @extend %same_code;
+    }
+    &_label2::after {
+      content: "2";
+      @extend %same_code;
+    }
+    &_label3::after {
+      content: "3";
+      @extend %same_code;
+    }
+    &_label4::after {
+      content: "4";
+      @extend %same_code;
+    }
+    &_label5::after {
+      content: "5";
+      @extend %same_code;
+    }
+  }
+}
+.attribution {
+  color: #faffff;
+  margin-top: 55px;
+  & a:link,
+  & a:visited {
+    color: $orange_color;
+  }
+}
+@media (max-width: 360px) {
+  .rating {
+    width: 27rem;
+
+    &_para {
+      width: 104%;
+    }
+  }
+}
+input:checked + label {
+  background-color: $orange_color;
+}
